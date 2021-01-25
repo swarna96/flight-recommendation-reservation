@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Table V04</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{% static 'manage_flight/images/icons/favicon.ico' %}"/>
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'manage_flight/vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'manage_flight/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'manage_flight/vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'manage_flight/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'manage_flight/vendor/perfect-scrollbar/perfect-scrollbar.css' %}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'manage_flight/css/util.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'manage_flight/css/main.css'%}">
+<!--===============================================================================================-->
+<style>
+.myDiv {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  background-color: white;
+  font-family: sans-serif;
+  font-size: 20px;
+  font-style:oblique; 
+  display:flex;
+  text-align: left;
+  border-radius: 25px;
+  box-shadow:5px 5px 5px 5px rgba(188,198,204,0.5);
+  
+
+}
+.scrollit{
+  overflow:scroll;
+  height:800px;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  padding: 0px;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  
+}
+th{
+	background-color: #ADD8E6;
+	opacity: 0.7;
+	font-weight: bold;
+	
+}
+tr:hover {background-color:#f5f5f5;}
+</style>
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+			<div class="myDiv">	
+						<table>
+							<thead>
+								<tr>
+									<th>Flight</th>
+									<th>From</th>
+									<th>Place</th>
+									<th>Date</th>
+									<th>Depart at</th>
+									<th>Arrive at</th>
+									<th>Travel_class</th>
+									<th>Total_seat</th>
+									<th>Available</th>
+									<th>Rate</th>
+									<th>Update</th>
+									<th>Delete</th>
+									
+								</tr>
+
+							</thead>
+							<div class="scrollit">
+							<tbody>
+								{% if flight_list %}
+                                    {% for f in flight_list %}
+								<tr class="row100 body">
+									<td>{{ f.Flight }}</td>
+									<td>{{ f.From_place }}</td>
+									<td>{{ f.To_place }}</td>
+									<td>{{ f.Date }}</td>
+									<td>{{ f.Depart_at_from }}</td>
+									<td>{{ f.Arrival_at_to }}</td>
+                                    <td>{{ f.Travel_class }}</td>
+                                    <td>{{ f.Total_seat }}</td>
+                                    <td>{{ f.Available }}</td>
+                                    <td>{{ f.Rate }}</td>
+                                    <td><a href="{% url 'flight:update_flight' f.id %}">Update</a></td>
+                                    <td><a href="{% url 'flight:delete_flight' f.id %}">Delete</a></td>
+
+								</tr>
+
+								{% endfor %}
+                                {% endif %}
+							</tbody>
+						</div>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+					
+
+
+<!--===============================================================================================-->	
+	<script src="{% static 'manage_flight/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'manage_flight/vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'manage_flight/vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'manage_flight/vendor/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+	<script>
+		$('.js-pscroll').each(function(){
+			var ps = new PerfectScrollbar(this);
+
+			$(window).on('resize', function(){
+				ps.update();
+			})
+		});
+			
+		
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'manage_flight/js/main.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Result</title>
+  </head>
+  <body>
+    <h1>Prediction</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Airline Name</th>
+          <th>From</th>
+          <th>To</th>
+          <th>Depart at</th>
+          <th>Arrive at</th>
+          <th>Rate</th>
+          <th>id</th>
+        </tr>
+      </thead>
+      <tbody>
+    {% if f %}    
+    {% for t in f %}
+        <tr>
+          
+          <td>{{t.Flight}}</td>
+          <td>{{t.From_place}}</td>
+          <td>{{t.To_place}}</td>
+          <td>{{t.Depart_at_from}}</td>
+          <td>{{t.Arrival_at_to}}</td>
+          <td>{{t.Rate}}</td>
+          <td><a href="{% url 'flight:book' t.id_x %}">Book</a></td>
+          
+
+        </tr>
+        {% endfor %}
+    {% endif %}
+        
+    
+    
+
+      </tbody>
+      
+
+
+    </table>
+    
+
+    
+  </body>
+</html>

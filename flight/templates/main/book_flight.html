@@ -1,0 +1,37 @@
+{% extends 'main/includes/header.html' %}
+
+{% block content %}
+
+ <div class="container">
+    <table>
+        
+
+        <tbody>
+            <tr>
+                <th>Flight</th>
+                <th>Depart at</th>
+                <th>Arrive at</th>
+                <th>Available</th>
+                <th>Rate</th>
+            </tr>
+        {% for t in all_flight %}
+
+            <tr>
+                <td> {{ t.Flight }} </td>
+                <td> {{ t.Depart_at_from }} </td>
+                <td> {{ t.Arrival_at_to }} </td> 
+                <td> {{ t.Available }} </td>    
+                <td> {{ t.Rate }} </td>            
+            </tr>   
+
+        {% endfor %}
+
+        </tbody>
+
+
+    </table>    
+
+ </div>
+
+
+{% endblock %}

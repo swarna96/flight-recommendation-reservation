@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Result</title>
+    <style>
+    	.mydiv{
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  background-color: rgba(37,56,60,0.8);
+  font-family: sans-serif;
+  font-size: 20px;
+  font-style:oblique; 
+  display:flex;
+  text-align: left;
+  border-radius: 25px;
+  box-shadow:5px 5px 5px 5px rgba(188,198,204,0.5);
+  height: 150px;
+  width: auto;
+  overflow:auto;
+  
+
+}
+limiter {
+  width: 1366px;
+  margin: 0 auto;
+  background: #848482;
+}
+
+.container-table100 {
+  width: 100%;
+  min-height: 100vh;
+  background: #848482;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px 200px;
+}
+th{
+  padding: 8px;
+  margin-bottom: 12px;
+}
+.wrap-table100 {
+  width: 1300px;
+}
+.bottom-three {
+     margin-bottom: 4cm;
+  }
+  #vertical {
+ 
+ height: 90px;
+ 
+ line-height: 90px;
+ 
+ text-align: center;
+ 
+a:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: grey;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: blue;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
+ 
+}
+
+    </style>
+    
+  </head>
+  <body>
+    <h1 style="color:#34282C;font-style: italic">Recommended Flights</h1>
+    <div class="limiter">
+	
+			{% if f %}    
+    {% for t in f %}
+    <div class=mydiv>
+      <table>
+        <thead>
+          <tr>
+      <th><span style="color:white;font-weight:normal;font-size: 30px;margin-right: 25px">Flight</span></th>
+      <th><span style="color:white;font-weight:normal;font-size: 30px;margin-right: 25px">From</span></th>
+      <th><span style="color:white;font-weight:normal;font-size: 30px;margin-right: 25px">Depart_at</span></th>
+      <th><span style="color:white;font-weight:normal;font-size: 30px;margin-right: 25px">Arrive_at</span></th>
+      <th><span style="color:white;font-weight:normal;font-size: 30px;margin-right: 25px">Rate</span></th>
+    </tr>
+     </thead>
+      <tbody>
+        <tr>
+    	<td><span style="color:white;font-weight:normal;font-size: 30px;margin-right: 25px">{{t.Flight}}
+      </span></td>
+      <td><span style="color:white;font-weight:normal;font-size: 30px;margin-right: 25px">{{t.From_place}}</span></td>
+      <td><span style="color:white;font-weight:normal;font-size: 30px;margin-right: 25px">{{t.To_place}}</span></td>
+      <td><span style="color:white;font-weight:normal;font-size: 30px;margin-right: 25px">{{t.Depart_at_from}}</span></td>
+      <td><span style="color:white;font-weight:normal;font-size: 30px;margin-right: 25px">{{t.Arrival_at_to}}</span></td>
+      <td><span style="color:white;font-weight:normal;font-size: 30px;margin-right: 25px">{{t.Rate}}</span></td>
+      <td><span style="color:white;font-weight:normal;font-size: 30px;margin-right: 25px"><a href="{% url 'flight:book' t.id_x %}">Book</a></span></td>
+    </tr>
+      </tbody>
+    </table>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+
+</div>
+</body>
+</html>

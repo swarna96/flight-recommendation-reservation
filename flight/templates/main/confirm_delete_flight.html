@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirm Delete</title>
+</head>
+<body>
+<h1>Delete Flight</h1>
+
+<p>Are you sure you want to delete the flight: {{ flight }}?</p>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Yes, delete.">
+  <input type="submit" onclick="window.location='{% url 'flight:homepage' %}' ; return false;" value="Cancel">
+</form>
+</body>
+</html>
+
+
