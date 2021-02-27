@@ -80,13 +80,14 @@ def signup(request):
          request,
          'main/signup.html',args
         )
+@csrf_exempt
 @login_required
 def cpanel(request):
     return render(
         request,
         "main/cpanel.html"
         )
-
+@csrf_exempt
 @login_required
 def cpanel1(request):
     return render(

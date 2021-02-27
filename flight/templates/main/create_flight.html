@@ -25,6 +25,22 @@
 
     <!-- Main CSS-->
     <link href="{% static 'create_flight/css/main.css' %}" rel="stylesheet" media="all">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .btn {
+  background-color: DodgerBlue; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+</style>
 </head>
 
 <body>
@@ -32,6 +48,7 @@
         <div class="wrapper wrapper--w680">
             <div class="card card-4">
                 <div class="card-body">
+                    <a href="/cpanel"><button class="btn"><i class="fa fa-home"></i> Home</button></a>
                     <h2 class="title">Flight Information Form</h2>
                     <form method="POST"> 
                         {% csrf_token %}

@@ -25,7 +25,21 @@
 
     <!-- Main CSS-->
     <link href="{% static 'profile/css/main.css' %}" rel="stylesheet" media="all">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+        .btn {
+  background-color: DodgerBlue; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
         table {
   border-collapse: collapse;
   width: 100%;
@@ -50,10 +64,13 @@ tr:hover {background-color:#f5f5f5;}
 
 <body>
     <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+
         <div class="wrapper wrapper--w790">
             <div class="card card-5">
                 <div class="card-heading">
+
                     <h2 class="title">Profile</h2>
+
                 </div>
                 <div class="card-body">
                     <form method="POST">
@@ -90,6 +107,8 @@ tr:hover {background-color:#f5f5f5;}
     <div>
                             <button class="btn btn--radius-2 btn--red" type="submit" formaction="{% url 'flight:profile_update' user_list.id %}">Edit</button>
                             <button class="btn btn--radius-2 btn--red" type="submit" formaction="{% url 'flight:view_ratings' %}">View Your Ratings</button>
+                            <button class="btn"type="submit" formaction="{% url 'flight:cpanel1' %}"><i class="fa fa-home"></i> Home</button></a>
+                            
 
                         </div>
                     </form>

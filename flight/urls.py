@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 from django.views.generic import TemplateView
+from django.views.decorators.csrf import csrf_exempt
 app_name = "flight"
 urlpatterns = [path("", views.homepage, name="homepage"),
              path("login/", views.login, name="login"),
